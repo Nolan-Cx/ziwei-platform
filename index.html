@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>紫微斗数 · 国学基础</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 星空背景 Canvas -->
+    <canvas id="starfield" class="starfield"></canvas>
+
+    <!-- 固定导航 -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <div class="header-left">
+                <span class="header-mark">紫微</span>
+            </div>
+            <nav class="header-nav">
+                <a href="#hero" class="nav-link active">首页</a>
+                <a href="#learn" class="nav-link">星盘</a>
+                <a href="#palaces" class="nav-link">十二宫</a>
+                <a href="#stars" class="nav-link">主星</a>
+            </nav>
+            <div class="header-right">
+                <span class="header-lang">ZH / EN</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero 区域 -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+                <span class="eyebrow-line"></span>
+                <span class="eyebrow-text">中国传统命理学 · 国学基础</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">紫微</span>
+                <span class="title-line">斗数</span>
+            </h1>
+            <p class="hero-subtitle">
+                以星为镜，观天之道<br>
+                探索千年传承的东方智慧
+            </p>
+            <div class="hero-cta">
+                <a href="#learn" class="btn-primary">
+                    <span class="btn-text">开启探索</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span class="scroll-text">向下滚动</span>
+            <span class="scroll-line"></span>
+        </div>
+        <div class="hero-coords">
+            <span>116°24′E</span>
+            <span>39°54′N</span>
+            <span id="live-time">--:--</span>
+        </div>
+    </section>
+
+    <!-- Marquee 区域 -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <span class="marquee-text">紫微斗数 · 十四主星 · 十二宫位 · 四化飞星 · 命盘排盘 · 星曜组合 · 大限流年 · 紫微斗数 · 十四主星 · 十二宫位 · 四化飞星 · 命盘排盘 · 星曜组合 · 大限流年</span>
+        </div>
+    </div>
+
+    <!-- 核心学习区：分屏布局 -->
+    <section class="learn-section" id="learn">
+        <div class="learn-container">
+            <!-- 左侧：固定星盘 -->
+            <div class="learn-left" id="learnLeft">
+                <div class="star-chart-container">
+                    <h2 class="chart-title">紫微命盘</h2>
+                    <p class="chart-subtitle">十二宫位 · 星曜分布</p>
+                    <div class="chart-wrapper">
+                        <svg id="ziweiChart" viewBox="0 0 400 400" class="ziwei-chart">
+                            <!-- 外圆 -->
+                            <circle cx="200" cy="200" r="190" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+                            <!-- 内圆 -->
+                            <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
+                            <!-- 中心圆 -->
+                            <circle cx="200" cy="200" r="40" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
+                            
+                            <!-- 十二宫位分割线 -->
+                            <g id="palaceLines"></g>
+                            
+                            <!-- 宫位标签 -->
+                            <g id="palaceLabels"></g>
+                            
+                            <!-- 星曜节点 -->
+                            <g id="starNodes"></g>
+                        </svg>
+                        <div class="chart-tooltip" id="chartTooltip"></div>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background:#c9a84c"></span>
+                            <span class="legend-text">紫微星系</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background:#c44d34"></span>
+                            <span class="legend-text">天府星系</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot" style="background:#6d8a6d"></span>
+                            <span class="legend-text">辅曜星系</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：可滚动内容 -->
+            <div class="learn-right" id="learnRight">
+                <div class="content-header">
+                    <span class="content-index">01</span>
+                    <h2 class="content-title">基础知识</h2>
+                </div>
+
+                <!-- 知识卡片 1：什么是紫微斗数 -->
+                <article class="knowledge-card" data-palace="center">
+                    <div class="card-header">
+                        <span class="card-number">001</span>
+                        <span class="card-tag">概论</span>
+                    </div>
+                    <h3 class="card-title">什么是紫微斗数</h3>
+                    <div class="card-body">
+                        <p>紫微斗数是中国传统命理学最重要的支派之一，以人出生的年、月、日、时确定十二宫的位置，构成命盘。结合各宫的星曜组合，牵系周易卦爻，来预测一个人的命运流程、吉凶祸福。</p>
+                        <p>相传为北宋道士陈抟（陈希夷）所创，以紫微星为诸星之首，故名「紫微斗数」。与八字推命并称「命理学两大支柱」，素有「天下第一神数」之美誉。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-readtime">阅读 5 分钟</span>
+                        <a href="#" class="card-link">深入了解 →</a>
+                    </div>
+                </article>
+
+                <!-- 知识卡片 2：十二宫位 -->
+                <article class="knowledge-card" data-palace="all">
+                    <div class="card-header">
+                        <span class="card-number">002</span>
+                        <span class="card-tag">宫位</span>
+                    </div>
+                    <h3 class="card-title">十二宫位体系</h3>
+                    <div class="card-body">
+                        <p>紫微命盘由十二宫组成，象征人生的十二个面向。命宫位于中央，其他十一宫环绕其外，各司其职。</p>
+                        <div class="palace-grid">
+                            <div class="palace-item">命宫 · 个性本质</div>
+                            <div class="palace-item">兄弟宫 · 手足情谊</div>
+                            <div class="palace-item">夫妻宫 · 婚姻伴侣</div>
+                            <div class="palace-item">子女宫 · 子嗣缘分</div>
+                            <div class="palace-item">财帛宫 · 财富事业</div>
+                            <div class="palace-item">疾厄宫 · 健康体质</div>
+                            <div class="palace-item">迁移宫 · 外出际遇</div>
+                            <div class="palace-item">交友宫 · 人际关系</div>
+                            <div class="palace-item">官禄宫 · 事业功名</div>
+                            <div class="palace-item">田宅宫 · 不动产</div>
+                            <div class="palace-item">福德宫 · 精神享受</div>
+                            <div class="palace-item">父母宫 · 长辈缘分</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-readtime">阅读 8 分钟</span>
+                        <a href="#" class="card-link">深入了解 →</a>
+                    </div>
+                </article>
+
+                <!-- 知识卡片 3：十四主星 -->
+                <article class="knowledge-card" data-palace="stars">
+                    <div class="card-header">
+                        <span class="card-number">003</span>
+                        <span class="card-tag">星曜</span>
+                    </div>
+                    <h3 class="card-title">十四主星</h3>
+                    <div class="card-body">
+                        <p>紫微斗数以十四颗主星为核心，分为紫微星系和天府星系两大类。每颗星曜都有其独特的性格特质与能量场。</p>
+                        <div class="star-category">
+                            <h4 class="star-cat-title">紫微星系</h4>
+                            <div class="star-tags">
+                                <span class="star-tag primary">紫微</span>
+                                <span class="star-tag primary">天机</span>
+                                <span class="star-tag primary">太阳</span>
+                                <span class="star-tag primary">武曲</span>
+                                <span class="star-tag primary">天同</span>
+                                <span class="star-tag primary">廉贞</span>
+                                <span class="star-tag primary">天府</span>
+                            </div>
+                        </div>
+                        <div class="star-category">
+                            <h4 class="star-cat-title">天府星系</h4>
+                            <div class="star-tags">
+                                <span class="star-tag secondary">太阴</span>
+                                <span class="star-tag secondary">贪狼</span>
+                                <span class="star-tag secondary">巨门</span>
+                                <span class="star-tag secondary">天相</span>
+                                <span class="star-tag secondary">天梁</span>
+                                <span class="star-tag secondary">七杀</span>
+                                <span class="star-tag secondary">破军</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-readtime">阅读 12 分钟</span>
+                        <a href="#" class="card-link">深入了解 →</a>
+                    </div>
+                </article>
+
+                <!-- 知识卡片 4：四化 -->
+                <article class="knowledge-card" data-palace="sihua">
+                    <div class="card-header">
+                        <span class="card-number">004</span>
+                        <span class="card-tag">四化</span>
+                    </div>
+                    <h3 class="card-title">四化飞星</h3>
+                    <div class="card-body">
+                        <p>「四化」是紫微斗数的精髓所在，指的是化禄、化权、化科、化忌四种能量变化。它们如同命运的催化剂，让静态的命盘产生动态的流转。</p>
+                        <div class="sihua-list">
+                            <div class="sihua-item">
+                                <span class="sihua-mark" style="color:#c9a84c">禄</span>
+                                <div class="sihua-info">
+                                    <strong>化禄</strong>
+                                    <span>财禄、福德、缘起</span>
+                                </div>
+                            </div>
+                            <div class="sihua-item">
+                                <span class="sihua-mark" style="color:#c44d34">权</span>
+                                <div class="sihua-info">
+                                    <strong>化权</strong>
+                                    <span>权力、掌控、竞争</span>
+                                </div>
+                            </div>
+                            <div class="sihua-item">
+                                <span class="sihua-mark" style="color:#6d8a6d">科</span>
+                                <div class="sihua-info">
+                                    <strong>化科</strong>
+                                    <span>名声、科甲、贵人</span>
+                                </div>
+                            </div>
+                            <div class="sihua-item">
+                                <span class="sihua-mark" style="color:#8a8a9a">忌</span>
+                                <div class="sihua-info">
+                                    <strong>化忌</strong>
+                                    <span>执着、困扰、收藏</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-readtime">阅读 10 分钟</span>
+                        <a href="#" class="card-link">深入了解 →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 十二宫详解 -->
+    <section class="palaces-section" id="palaces">
+        <div class="section-divider">
+            <span class="divider-line"></span>
+            <span class="divider-text">十二宫位</span>
+            <span class="divider-line"></span>
+        </div>
+        <div class="palaces-container">
+            <div class="palace-showcase">
+                <div class="showcase-text">
+                    <span class="showcase-index">02</span>
+                    <h2 class="showcase-title">命盘十二宫</h2>
+                    <p class="showcase-desc">紫微命盘将人生划分为十二个领域，每个宫位代表不同的生活面向。命宫为核心，揭示一个人的先天禀赋与性格底色。</p>
+                </div>
+                <div class="showcase-visual">
+                    <div class="palace-ring">
+                        <div class="ring-center">命</div>
+                        <div class="ring-item" style="--angle:0deg">命宫</div>
+                        <div class="ring-item" style="--angle:30deg">兄弟</div>
+                        <div class="ring-item" style="--angle:60deg">夫妻</div>
+                        <div class="ring-item" style="--angle:90deg">子女</div>
+                        <div class="ring-item" style="--angle:120deg">财帛</div>
+                        <div class="ring-item" style="--angle:150deg">疾厄</div>
+                        <div class="ring-item" style="--angle:180deg">迁移</div>
+                        <div class="ring-item" style="--angle:210deg">交友</div>
+                        <div class="ring-item" style="--angle:240deg">官禄</div>
+                        <div class="ring-item" style="--angle:270deg">田宅</div>
+                        <div class="ring-item" style="--angle:300deg">福德</div>
+                        <div class="ring-item" style="--angle:330deg">父母</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主星详解 -->
+    <section class="stars-section" id="stars">
+        <div class="section-divider">
+            <span class="divider-line"></span>
+            <span class="divider-text">十四主星</span>
+            <span class="divider-line"></span>
+        </div>
+        <div class="stars-container">
+            <div class="stars-header">
+                <span class="stars-index">03</span>
+                <h2 class="stars-title">星曜世界</h2>
+                <p class="stars-desc">十四颗主星，十四种人生底色</p>
+            </div>
+            <div class="stars-grid">
+                <div class="star-card">
+                    <div class="star-card-symbol">紫微</div>
+                    <div class="star-card-name">紫微星</div>
+                    <div class="star-card-attr">帝座 · 尊贵 · 领导力</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">天机</div>
+                    <div class="star-card-name">天机星</div>
+                    <div class="star-card-attr">智慧 · 机变 · 善谋</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">太阳</div>
+                    <div class="star-card-name">太阳星</div>
+                    <div class="star-card-attr">光明 · 博爱 · 官贵</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">武曲</div>
+                    <div class="star-card-name">武曲星</div>
+                    <div class="star-card-attr">财帛 · 刚毅 · 实干</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">天同</div>
+                    <div class="star-card-name">天同星</div>
+                    <div class="star-card-attr">福德 · 温和 · 享乐</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">廉贞</div>
+                    <div class="star-card-name">廉贞星</div>
+                    <div class="star-card-attr">囚星 · 执着 · 才艺</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">天府</div>
+                    <div class="star-card-name">天府星</div>
+                    <div class="star-card-attr">令星 · 稳重 · 财库</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">太阴</div>
+                    <div class="star-card-name">太阴星</div>
+                    <div class="star-card-attr">阴柔 · 财富 · 田宅</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">贪狼</div>
+                    <div class="star-card-name">贪狼星</div>
+                    <div class="star-card-attr">桃花 · 欲望 · 才艺</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">巨门</div>
+                    <div class="star-card-name">巨门星</div>
+                    <div class="star-card-attr">暗曜 · 口才 · 是非</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">天相</div>
+                    <div class="star-card-name">天相星</div>
+                    <div class="star-card-attr">印绶 · 服务 · 衣食</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">天梁</div>
+                    <div class="star-card-name">天梁星</div>
+                    <div class="star-card-attr">荫星 · 长寿 · 解厄</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">七杀</div>
+                    <div class="star-card-name">七杀星</div>
+                    <div class="star-card-attr">将星 · 决断 · 开创</div>
+                </div>
+                <div class="star-card">
+                    <div class="star-card-symbol">破军</div>
+                    <div class="star-card-name">破军星</div>
+                    <div class="star-card-attr">耗星 · 变化 · 开创</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span class="footer-mark">紫微斗数</span>
+                <span class="footer-sub">ZIWEI DOUSHU</span>
+            </div>
+            <div class="footer-nav">
+                <a href="#hero">首页</a>
+                <a href="#learn">星盘</a>
+                <a href="#palaces">十二宫</a>
+                <a href="#stars">主星</a>
+            </div>
+            <div class="footer-copy">
+                <span>传承千年东方智慧</span>
+                <span>© 2025 国学基础学习平台</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
