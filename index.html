@@ -2,8 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>紫微斗数 · 国学基础</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>紫微斗数 · 国学基础学习平台</title>
+    <meta name="description" content="以现代科技感呈现中国传统命理学紫微斗数，涵盖十二宫位、十四主星、四化飞星等完整知识体系。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -17,19 +18,40 @@
     <header class="header" id="header">
         <div class="header-inner">
             <div class="header-left">
-                <span class="header-mark">紫微</span>
+                <a href="#hero" class="header-mark">紫微</a>
             </div>
             <nav class="header-nav">
                 <a href="#hero" class="nav-link active">首页</a>
-                <a href="#learn" class="nav-link">星盘</a>
+                <a href="#learn" class="nav-link">基础知识</a>
                 <a href="#palaces" class="nav-link">十二宫</a>
                 <a href="#stars" class="nav-link">主星</a>
+                <a href="#aux-stars" class="nav-link">辅煞星</a>
+                <a href="#patterns" class="nav-link">格局</a>
             </nav>
-            <div class="header-right">
+            <div class="header-actions">
                 <span class="header-lang">ZH / EN</span>
+                <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                    <span class="icon-moon">&#9790;</span>
+                    <span class="icon-sun">&#9728;</span>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="菜单">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- 移动端菜单 -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#hero" class="nav-link">首页</a>
+        <a href="#learn" class="nav-link">基础知识</a>
+        <a href="#palaces" class="nav-link">十二宫</a>
+        <a href="#stars" class="nav-link">主星</a>
+        <a href="#aux-stars" class="nav-link">辅煞星</a>
+        <a href="#patterns" class="nav-link">格局</a>
+    </nav>
 
     <!-- Hero 区域 -->
     <section class="hero" id="hero">
@@ -37,6 +59,7 @@
             <div class="hero-eyebrow">
                 <span class="eyebrow-line"></span>
                 <span class="eyebrow-text">中国传统命理学 · 国学基础</span>
+                <span class="eyebrow-line"></span>
             </div>
             <h1 class="hero-title">
                 <span class="title-line">紫微</span>
@@ -49,7 +72,7 @@
             <div class="hero-cta">
                 <a href="#learn" class="btn-primary">
                     <span class="btn-text">开启探索</span>
-                    <span class="btn-arrow">→</span>
+                    <span class="btn-arrow">&#8594;</span>
                 </a>
             </div>
         </div>
@@ -58,8 +81,8 @@
             <span class="scroll-line"></span>
         </div>
         <div class="hero-coords">
-            <span>116°24′E</span>
-            <span>39°54′N</span>
+            <span>116&#176;24&#8242;E</span>
+            <span>39&#176;54&#8242;N</span>
             <span id="live-time">--:--</span>
         </div>
     </section>
@@ -67,34 +90,25 @@
     <!-- Marquee 区域 -->
     <div class="marquee-section">
         <div class="marquee-track">
-            <span class="marquee-text">紫微斗数 · 十四主星 · 十二宫位 · 四化飞星 · 命盘排盘 · 星曜组合 · 大限流年 · 紫微斗数 · 十四主星 · 十二宫位 · 四化飞星 · 命盘排盘 · 星曜组合 · 大限流年</span>
+            <span class="marquee-text">紫微斗数 &#183; 十二宫位 &#183; 十四主星 &#183; 四化飞星 &#183; 六吉星 &#183; 六煞星 &#183; 命盘格局 &#183; 大限流年 &#183; 紫微斗数 &#183; 十二宫位 &#183; 十四主星 &#183; 四化飞星 &#183; 六吉星 &#183; 六煞星 &#183; 命盘格局 &#183; 大限流年 &#183; </span>
         </div>
     </div>
 
-    <!-- 核心学习区：分屏布局 -->
+    <!-- ==================== 核心学习区：基础知识 ==================== -->
     <section class="learn-section" id="learn">
         <div class="learn-container">
             <!-- 左侧：固定星盘 -->
             <div class="learn-left" id="learnLeft">
                 <div class="star-chart-container">
                     <h2 class="chart-title">紫微命盘</h2>
-                    <p class="chart-subtitle">十二宫位 · 星曜分布</p>
+                    <p class="chart-subtitle">十二宫位 &#183; 星曜分布</p>
                     <div class="chart-wrapper">
                         <svg id="ziweiChart" viewBox="0 0 400 400" class="ziwei-chart">
-                            <!-- 外圆 -->
-                            <circle cx="200" cy="200" r="190" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
-                            <!-- 内圆 -->
-                            <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
-                            <!-- 中心圆 -->
-                            <circle cx="200" cy="200" r="40" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
-                            
-                            <!-- 十二宫位分割线 -->
+                            <circle cx="200" cy="200" r="190" fill="none" stroke="rgba(184,149,78,0.12)" stroke-width="1"/>
+                            <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(184,149,78,0.08)" stroke-width="1"/>
+                            <circle cx="200" cy="200" r="40" fill="none" stroke="rgba(184,149,78,0.15)" stroke-width="1"/>
                             <g id="palaceLines"></g>
-                            
-                            <!-- 宫位标签 -->
                             <g id="palaceLabels"></g>
-                            
-                            <!-- 星曜节点 -->
                             <g id="starNodes"></g>
                         </svg>
                         <div class="chart-tooltip" id="chartTooltip"></div>
@@ -123,7 +137,7 @@
                     <h2 class="content-title">基础知识</h2>
                 </div>
 
-                <!-- 知识卡片 1：什么是紫微斗数 -->
+                <!-- 001 什么是紫微斗数 -->
                 <article class="knowledge-card" data-palace="center">
                     <div class="card-header">
                         <span class="card-number">001</span>
@@ -131,56 +145,135 @@
                     </div>
                     <h3 class="card-title">什么是紫微斗数</h3>
                     <div class="card-body">
-                        <p>紫微斗数是中国传统命理学最重要的支派之一，以人出生的年、月、日、时确定十二宫的位置，构成命盘。结合各宫的星曜组合，牵系周易卦爻，来预测一个人的命运流程、吉凶祸福。</p>
-                        <p>相传为北宋道士陈抟（陈希夷）所创，以紫微星为诸星之首，故名「紫微斗数」。与八字推命并称「命理学两大支柱」，素有「天下第一神数」之美誉。</p>
+                        <p>紫微斗数是中国传统命理学最重要的支派之一，以人出生的年、月、日、时确定十二宫的位置，构成命盘，结合各宫的星曜组合来预测一个人的命运流程、吉凶祸福。</p>
+                        <p>相传为北宋道士<strong>陈抟</strong>（陈希夷）所创，以紫微星为诸星之首，故名「紫微斗数」。与八字推命并称「命理学两大支柱」，素有「天下第一神数」之美誉。</p>
+                        <p>紫微斗数通过<strong>命盘</strong>来呈现一个人的先天格局。命盘由<strong>十二宫</strong>组成，象征人生的十二个面向，每个宫位根据出生信息安置不同的<strong>星曜</strong>，星曜之间的组合与互动形成了千变万化的命理格局。</p>
                     </div>
                     <div class="card-footer">
                         <span class="card-readtime">阅读 5 分钟</span>
-                        <a href="#" class="card-link">深入了解 →</a>
                     </div>
                 </article>
 
-                <!-- 知识卡片 2：十二宫位 -->
-                <article class="knowledge-card" data-palace="all">
+                <!-- 002 历史与流派 -->
+                <article class="knowledge-card">
                     <div class="card-header">
                         <span class="card-number">002</span>
-                        <span class="card-tag">宫位</span>
+                        <span class="card-tag">历史</span>
                     </div>
-                    <h3 class="card-title">十二宫位体系</h3>
+                    <h3 class="card-title">历史渊源与主要流派</h3>
                     <div class="card-body">
-                        <p>紫微命盘由十二宫组成，象征人生的十二个面向。命宫位于中央，其他十一宫环绕其外，各司其职。</p>
+                        <p>紫微斗数的起源可追溯至唐代，经由宋、明、清历代术士不断发展完善，形成了今日完整的命理体系。</p>
+                        <ul class="card-list">
+                            <li><strong>起源期（唐~宋）</strong>：相传由吕洞宾传于陈抟老祖，陈抟著《紫微斗数全书》，奠定理论基础。</li>
+                            <li><strong>发展期（明~清）</strong>：紫微斗数与八字推命并行发展，出现大量注释与案例集。</li>
+                            <li><strong>现代期（民国至今）</strong>：分为<strong>三合派</strong>与<strong>四化派（飞星派）</strong>两大主流，各有侧重。</li>
+                        </ul>
+                        <p><strong>三合派</strong>注重星曜组合与宫位关系，强调「三方四正」的联动分析；<strong>四化派</strong>则以四化（禄权科忌）为核心，注重能量的流动与变化。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-readtime">阅读 6 分钟</span>
+                    </div>
+                </article>
+
+                <!-- 003 命盘结构 -->
+                <article class="knowledge-card" data-palace="all">
+                    <div class="card-header">
+                        <span class="card-number">003</span>
+                        <span class="card-tag">命盘</span>
+                    </div>
+                    <h3 class="card-title">命盘的基本结构</h3>
+                    <div class="card-body">
+                        <p>紫微命盘由<strong>十二宫位</strong>、<strong>星曜</strong>、<strong>四化</strong>三大部分组成，是解读命运的蓝图。</p>
                         <div class="palace-grid">
-                            <div class="palace-item">命宫 · 个性本质</div>
-                            <div class="palace-item">兄弟宫 · 手足情谊</div>
-                            <div class="palace-item">夫妻宫 · 婚姻伴侣</div>
-                            <div class="palace-item">子女宫 · 子嗣缘分</div>
-                            <div class="palace-item">财帛宫 · 财富事业</div>
-                            <div class="palace-item">疾厄宫 · 健康体质</div>
-                            <div class="palace-item">迁移宫 · 外出际遇</div>
-                            <div class="palace-item">交友宫 · 人际关系</div>
-                            <div class="palace-item">官禄宫 · 事业功名</div>
-                            <div class="palace-item">田宅宫 · 不动产</div>
-                            <div class="palace-item">福德宫 · 精神享受</div>
-                            <div class="palace-item">父母宫 · 长辈缘分</div>
+                            <div class="palace-item">命宫 &#183; 个性本质</div>
+                            <div class="palace-item">兄弟宫 &#183; 手足情谊</div>
+                            <div class="palace-item">夫妻宫 &#183; 婚姻伴侣</div>
+                            <div class="palace-item">子女宫 &#183; 子嗣缘分</div>
+                            <div class="palace-item">财帛宫 &#183; 财富事业</div>
+                            <div class="palace-item">疾厄宫 &#183; 健康体质</div>
+                            <div class="palace-item">迁移宫 &#183; 外出际遇</div>
+                            <div class="palace-item">交友宫 &#183; 人际关系</div>
+                            <div class="palace-item">官禄宫 &#183; 事业功名</div>
+                            <div class="palace-item">田宅宫 &#183; 不动产</div>
+                            <div class="palace-item">福德宫 &#183; 精神享受</div>
+                            <div class="palace-item">父母宫 &#183; 长辈缘分</div>
                         </div>
+                        <p style="margin-top:1rem">此外还有<strong>身宫</strong>，代表后天努力的方向，与命宫共同决定一个人的命运轨迹。</p>
                     </div>
                     <div class="card-footer">
                         <span class="card-readtime">阅读 8 分钟</span>
-                        <a href="#" class="card-link">深入了解 →</a>
                     </div>
                 </article>
 
-                <!-- 知识卡片 3：十四主星 -->
+                <!-- 004 五行局 -->
+                <article class="knowledge-card">
+                    <div class="card-header">
+                        <span class="card-number">004</span>
+                        <span class="card-tag">五行</span>
+                    </div>
+                    <h3 class="card-title">五行局与命宫干支</h3>
+                    <div class="card-body">
+                        <p>五行局是紫微斗数排盘的基础，根据出生年份的干支纳音确定。五行局分为五种，决定命宫的位置与命盘的排列方式。</p>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>五行局</th>
+                                    <th>纳音</th>
+                                    <th>起运年龄</th>
+                                    <th>大限间隔</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong style="color:var(--accent-blue)">水二局</strong></td>
+                                    <td>涧下水、泉中水等</td>
+                                    <td>2岁</td>
+                                    <td>2年</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-green)">木三局</strong></td>
+                                    <td>大林木、杨柳木等</td>
+                                    <td>3岁</td>
+                                    <td>3年</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-gold)">金四局</strong></td>
+                                    <td>剑锋金、白蜡金等</td>
+                                    <td>4岁</td>
+                                    <td>4年</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-purple)">土五局</strong></td>
+                                    <td>城头土、屋上土等</td>
+                                    <td>5岁</td>
+                                    <td>5年</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-crimson)">火六局</strong></td>
+                                    <td>炉中火、山头火等</td>
+                                    <td>6岁</td>
+                                    <td>6年</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="margin-top:1rem">大限间隔决定每十年大运的划分方式，是推算流年运势的重要依据。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-readtime">阅读 7 分钟</span>
+                    </div>
+                </article>
+
+                <!-- 005 十四主星 -->
                 <article class="knowledge-card" data-palace="stars">
                     <div class="card-header">
-                        <span class="card-number">003</span>
+                        <span class="card-number">005</span>
                         <span class="card-tag">星曜</span>
                     </div>
-                    <h3 class="card-title">十四主星</h3>
+                    <h3 class="card-title">十四主星总览</h3>
                     <div class="card-body">
-                        <p>紫微斗数以十四颗主星为核心，分为紫微星系和天府星系两大类。每颗星曜都有其独特的性格特质与能量场。</p>
+                        <p>紫微斗数以十四颗主星为核心，分为<strong>紫微星系</strong>和<strong>天府星系</strong>两大类，外加若干辅星、煞星，共同构成命盘的星曜系统。</p>
                         <div class="star-category">
-                            <h4 class="star-cat-title">紫微星系</h4>
+                            <h4 class="star-cat-title">紫微星系（北斗）</h4>
                             <div class="star-tags">
                                 <span class="star-tag primary">紫微</span>
                                 <span class="star-tag primary">天机</span>
@@ -192,7 +285,7 @@
                             </div>
                         </div>
                         <div class="star-category">
-                            <h4 class="star-cat-title">天府星系</h4>
+                            <h4 class="star-cat-title">天府星系（南斗）</h4>
                             <div class="star-tags">
                                 <span class="star-tag secondary">太阴</span>
                                 <span class="star-tag secondary">贪狼</span>
@@ -205,61 +298,214 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <span class="card-readtime">阅读 12 分钟</span>
-                        <a href="#" class="card-link">深入了解 →</a>
+                        <span class="card-readtime">阅读 10 分钟</span>
                     </div>
                 </article>
 
-                <!-- 知识卡片 4：四化 -->
+                <!-- 006 四化飞星 -->
                 <article class="knowledge-card" data-palace="sihua">
                     <div class="card-header">
-                        <span class="card-number">004</span>
+                        <span class="card-number">006</span>
                         <span class="card-tag">四化</span>
                     </div>
                     <h3 class="card-title">四化飞星</h3>
                     <div class="card-body">
-                        <p>「四化」是紫微斗数的精髓所在，指的是化禄、化权、化科、化忌四种能量变化。它们如同命运的催化剂，让静态的命盘产生动态的流转。</p>
+                        <p>「四化」是紫微斗数的精髓所在，指的是<strong>化禄、化权、化科、化忌</strong>四种能量变化。它们如同命运的催化剂，让静态的命盘产生动态的流转。</p>
                         <div class="sihua-list">
                             <div class="sihua-item">
-                                <span class="sihua-mark" style="color:#c9a84c">禄</span>
+                                <span class="sihua-mark" style="color:var(--accent-gold)">禄</span>
                                 <div class="sihua-info">
                                     <strong>化禄</strong>
-                                    <span>财禄、福德、缘起</span>
+                                    <span>财禄、福德、缘起、圆满</span>
                                 </div>
                             </div>
                             <div class="sihua-item">
-                                <span class="sihua-mark" style="color:#c44d34">权</span>
+                                <span class="sihua-mark" style="color:var(--accent-crimson)">权</span>
                                 <div class="sihua-info">
                                     <strong>化权</strong>
-                                    <span>权力、掌控、竞争</span>
+                                    <span>权力、掌控、竞争、成就</span>
                                 </div>
                             </div>
                             <div class="sihua-item">
-                                <span class="sihua-mark" style="color:#6d8a6d">科</span>
+                                <span class="sihua-mark" style="color:var(--accent-green)">科</span>
                                 <div class="sihua-info">
                                     <strong>化科</strong>
-                                    <span>名声、科甲、贵人</span>
+                                    <span>名声、科甲、贵人、文雅</span>
                                 </div>
                             </div>
                             <div class="sihua-item">
-                                <span class="sihua-mark" style="color:#8a8a9a">忌</span>
+                                <span class="sihua-mark" style="color:var(--text-muted)">忌</span>
                                 <div class="sihua-info">
                                     <strong>化忌</strong>
-                                    <span>执着、困扰、收藏</span>
+                                    <span>执着、困扰、收藏、结束</span>
                                 </div>
                             </div>
                         </div>
+                        <p style="margin-top:1rem">四化由天干引发：甲年生人廉贞化禄、破军化权、武曲化科、太阳化忌，依此类推。四化的飞布揭示命运的起伏变化。</p>
                     </div>
                     <div class="card-footer">
                         <span class="card-readtime">阅读 10 分钟</span>
-                        <a href="#" class="card-link">深入了解 →</a>
+                    </div>
+                </article>
+
+                <!-- 007 六吉星 -->
+                <article class="knowledge-card">
+                    <div class="card-header">
+                        <span class="card-number">007</span>
+                        <span class="card-tag">吉星</span>
+                    </div>
+                    <h3 class="card-title">六吉星</h3>
+                    <div class="card-body">
+                        <p>六吉星是对主星起辅助、增辉作用的星曜，能化解部分煞星的凶性，增强吉星的正面效应。</p>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>星曜</th>
+                                    <th>特性</th>
+                                    <th>作用</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong style="color:var(--accent-gold)">文昌</strong></td>
+                                    <td>文星、科甲</td>
+                                    <td>利于考试、文书、学术</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-gold)">文曲</strong></td>
+                                    <td>才艺、口才</td>
+                                    <td>利于艺术、表达、创意</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-gold)">左辅</strong></td>
+                                    <td>辅佐、助力</td>
+                                    <td>增加助力，平辈贵人</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-gold)">右弼</strong></td>
+                                    <td>辅佐、暗助</td>
+                                    <td>暗中相助，异性贵人</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-gold)">天魁</strong></td>
+                                    <td>阳贵人、显贵</td>
+                                    <td>男性贵人，明面上的帮助</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-gold)">天钺</strong></td>
+                                    <td>阴贵人、隐贵</td>
+                                    <td>女性贵人，暗中的提携</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-readtime">阅读 6 分钟</span>
+                    </div>
+                </article>
+
+                <!-- 008 六煞星 -->
+                <article class="knowledge-card">
+                    <div class="card-header">
+                        <span class="card-number">008</span>
+                        <span class="card-tag">煞星</span>
+                    </div>
+                    <h3 class="card-title">六煞星</h3>
+                    <div class="card-body">
+                        <p>六煞星具有破坏、阻碍的性质，但它们并非纯粹的凶星——适当的煞星反而能激发人的斗志与潜能，所谓「无煞不贵」。</p>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>星曜</th>
+                                    <th>特性</th>
+                                    <th>影响</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong style="color:var(--accent-crimson)">火星</strong></td>
+                                    <td>暴烈、突发</td>
+                                    <td>脾气急躁，易有突发变故</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-crimson)">铃星</strong></td>
+                                    <td>阴火、暗伤</td>
+                                    <td>内心烦躁，暗疾暗伤</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-crimson)">擎羊</strong></td>
+                                    <td>刑伤、血光</td>
+                                    <td>易有刑伤、手术、冲突</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-crimson)">陀罗</strong></td>
+                                    <td>拖延、暗滞</td>
+                                    <td>做事拖延，进展缓慢</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-crimson)">地空</strong></td>
+                                    <td>空亡、失落</td>
+                                    <td>精神空虚，易有失落感</td>
+                                </tr>
+                                <tr>
+                                    <td><strong style="color:var(--accent-crimson)">地劫</strong></td>
+                                    <td>劫难、破耗</td>
+                                    <td>财物破耗，易遇劫难</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-readtime">阅读 6 分钟</span>
+                    </div>
+                </article>
+
+                <!-- 009 大限与流年 -->
+                <article class="knowledge-card">
+                    <div class="card-header">
+                        <span class="card-number">009</span>
+                        <span class="card-tag">运势</span>
+                    </div>
+                    <h3 class="card-title">大限、小限与流年</h3>
+                    <div class="card-body">
+                        <p>紫微斗数不仅看先天命盘，更注重<strong>运势的流转</strong>。通过大限、小限、流年的推算，可以了解人生不同阶段的起伏变化。</p>
+                        <ul class="card-list">
+                            <li><strong>大限（大运）</strong>：每十年一个周期，根据五行局不同，起运年龄从2~6岁不等。大限决定这十年的整体运势走向。</li>
+                            <li><strong>小限</strong>：每年的运势，以流年地支所在宫位为中心，结合小限星曜判断当年吉凶。</li>
+                            <li><strong>流年</strong>：以农历年为单位，流年太岁入命宫，结合流年四化分析当年的具体事件。</li>
+                        </ul>
+                        <p>推算时需综合参考：<strong>本命盘</strong>（先天格局）、<strong>大限盘</strong>（十年趋势）、<strong>流年盘</strong>（当年事件）三层信息。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-readtime">阅读 8 分钟</span>
+                    </div>
+                </article>
+
+                <!-- 010 三方四正 -->
+                <article class="knowledge-card">
+                    <div class="card-header">
+                        <span class="card-number">010</span>
+                        <span class="card-tag">技法</span>
+                    </div>
+                    <h3 class="card-title">三方四正与对宫</h3>
+                    <div class="card-body">
+                        <p>「三方四正」是紫微斗数最核心的分析技法，指的是与本宫有最强关联的四个宫位。</p>
+                        <ul class="card-list">
+                            <li><strong>本宫</strong>：分析的基准宫位，如命宫、财帛宫等。</li>
+                            <li><strong>对宫</strong>：与本宫相对（相隔六宫），影响最为直接，如命宫的对宫是迁移宫。</li>
+                            <li><strong>三合宫</strong>：与本宫形成三合局的两个宫位，如命宫的三合是财帛宫与官禄宫。</li>
+                        </ul>
+                        <p>三方四正加起来共四个宫位，它们的星曜组合共同决定了一个领域的吉凶祸福。例如看事业，需同时参考<strong>官禄宫</strong>（本宫）、<strong>夫妻宫</strong>（对宫）、<strong>命宫</strong>与<strong>财帛宫</strong>（三合）。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-readtime">阅读 7 分钟</span>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- 十二宫详解 -->
+    <!-- ==================== 十二宫详解 ==================== -->
     <section class="palaces-section" id="palaces">
         <div class="section-divider">
             <span class="divider-line"></span>
@@ -291,10 +537,157 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 十二宫详细卡片 -->
+            <div style="margin-top:var(--space-12)">
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header">
+                        <span class="card-number">01/12</span>
+                        <span class="card-tag">命宫</span>
+                    </div>
+                    <h3 class="card-title">命宫 &#183; 先天本质</h3>
+                    <div class="card-body">
+                        <p>命宫是紫微斗数的核心，代表一个人的<strong>先天性格、天赋、命运走向</strong>。命宫所在的地支宫位与星曜组合，决定了一个人的基本人生格局。</p>
+                        <p>命宫与身宫的关系尤为重要：命宫看「先天」，身宫看「后天」。身宫所在宫位往往是一个人中年后努力的方向。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header">
+                        <span class="card-number">02/12</span>
+                        <span class="card-tag">兄弟宫</span>
+                    </div>
+                    <h3 class="card-title">兄弟宫 &#183; 手足情谊</h3>
+                    <div class="card-body">
+                        <p>兄弟宫主<strong>兄弟姐妹</strong>的关系、数量与助力。现代也延伸至亲密朋友、合伙人等平辈关系。</p>
+                        <p>兄弟宫星曜吉利，则手足和睦、互相扶持；若逢煞星，则可能兄弟缘薄或有争执。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header">
+                        <span class="card-number">03/12</span>
+                        <span class="card-tag">夫妻宫</span>
+                    </div>
+                    <h3 class="card-title">夫妻宫 &#183; 婚姻伴侣</h3>
+                    <div class="card-body">
+                        <p>夫妻宫揭示<strong>婚姻状况、配偶特质、感情模式</strong>。紫微斗数中夫妻宫与官禄宫形成对宫关系，暗示事业与婚姻相互影响。</p>
+                        <p>夫妻宫吉星汇聚，主婚姻美满；煞星多现，则感情波折。但也要结合大限流年综合判断。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header">
+                        <span class="card-number">04/12</span>
+                        <span class="card-tag">子女宫</span>
+                    </div>
+                    <h3 class="card-title">子女宫 &#183; 子嗣缘分</h3>
+                    <div class="card-body">
+                        <p>子女宫主<strong>子女缘分、子女性格、与晚辈的关系</strong>，也可看合伙事业、学生缘等。</p>
+                        <p>现代解读中，子女宫也反映一个人的创造力与表达力——"子女"广义上可代表一切由你创造的事物。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header">
+                        <span class="card-number">05/12</span>
+                        <span class="card-tag">财帛宫</span>
+                    </div>
+                    <h3 class="card-title">财帛宫 &#183; 财富事业</h3>
+                    <div class="card-body">
+                        <p>财帛宫揭示一个人的<strong>财运、理财能力、求财方式</strong>。此宫与命宫、官禄宫三合，三者共同决定事业财富格局。</p>
+                        <p>武曲、天府入财帛主富；太阴、天同入财帛主财源稳定。煞星过多则需防破财。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header">
+                        <span class="card-number">06/12</span>
+                        <span class="card-tag">疾厄宫</span>
+                    </div>
+                    <h3 class="card-title">疾厄宫 &#183; 健康体质</h3>
+                    <div class="card-body">
+                        <p>疾厄宫主<strong>身体状况、疾病倾向、体质强弱</strong>。根据星曜五行属性，可推断易患的疾病类型。</p>
+                        <p>例如火星、擎羊入疾厄，需防外伤与炎症；天梁入疾厄，主逢凶化吉、遇病得医。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header">
+                        <span class="card-number">07/12</span>
+                        <span class="card-tag">迁移宫</span>
+                    </div>
+                    <h3 class="card-title">迁移宫 &#183; 外出际遇</h3>
+                    <div class="card-body">
+                        <p>迁移宫代表<strong>外出运势、异乡发展、人际关系的外显层面</strong>，与命宫形成对宫，影响一个人在外界眼中的形象。</p>
+                        <p>迁移宫吉利，外出顺遂、在外得助；若逢煞星，则离乡背井多波折。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header">
+                        <span class="card-number">08/12</span>
+                        <span class="card-tag">交友宫</span>
+                    </div>
+                    <h3 class="card-title">交友宫 &#183; 人际关系</h3>
+                    <div class="card-body">
+                        <p>交友宫主<strong>朋友、同事、下属</strong>等平辈关系。此宫也称"奴仆宫"，古人用以看仆人，现代主要看职场人际与团队关系。</p>
+                        <p>交友宫好坏直接影响事业发展——「一个好汉三个帮」，人缘好坏往往决定成败。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header">
+                        <span class="card-number">09/12</span>
+                        <span class="card-tag">官禄宫</span>
+                    </div>
+                    <h3 class="card-title">官禄宫 &#183; 事业功名</h3>
+                    <div class="card-body">
+                        <p>官禄宫揭示<strong>事业发展、职业方向、社会成就</strong>。此宫与命宫、财帛宫三合，是人生「铁三角」之一。</p>
+                        <p>紫微、天府入官禄主掌权；太阳、天梁主清贵；武曲、七杀主创业。事业方向的选择应参考官禄宫星曜特性。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header">
+                        <span class="card-number">10/12</span>
+                        <span class="card-tag">田宅宫</span>
+                    </div>
+                    <h3 class="card-title">田宅宫 &#183; 不动产</h3>
+                    <div class="card-body">
+                        <p>田宅宫主<strong>不动产、家宅运势、居住环境</strong>。此宫也反映家庭背景与祖业。</p>
+                        <p>田宅宫吉星多，主置业顺利、家境殷实；煞星多则家宅不宁、房产多变动。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header">
+                        <span class="card-number">11/12</span>
+                        <span class="card-tag">福德宫</span>
+                    </div>
+                    <h3 class="card-title">福德宫 &#183; 精神享受</h3>
+                    <div class="card-body">
+                        <p>福德宫揭示一个人的<strong>精神世界、兴趣爱好、享福能力</strong>，是命盘中最为「隐性」的宫位。</p>
+                        <p>福德宫吉利，主心态平和、知足常乐；煞星多则内心焦虑、精神压力大。此宫与财帛宫对宫，暗示「财富」与「幸福感」的关系。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header">
+                        <span class="card-number">12/12</span>
+                        <span class="card-tag">父母宫</span>
+                    </div>
+                    <h3 class="card-title">父母宫 &#183; 长辈缘分</h3>
+                    <div class="card-body">
+                        <p>父母宫主<strong>父母关系、长辈缘、上司缘</strong>。此宫也反映一个人的学习能力与文书运势。</p>
+                        <p>父母宫吉利，主父母康健、得长辈提携；煞星多则与父母缘薄或长辈多病。</p>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
-    <!-- 主星详解 -->
+    <!-- ==================== 十四主星详解 ==================== -->
     <section class="stars-section" id="stars">
         <div class="section-divider">
             <span class="divider-line"></span>
@@ -311,78 +704,375 @@
                 <div class="star-card">
                     <div class="star-card-symbol">紫微</div>
                     <div class="star-card-name">紫微星</div>
-                    <div class="star-card-attr">帝座 · 尊贵 · 领导力</div>
+                    <div class="star-card-attr">帝座 &#183; 尊贵 &#183; 领导力</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">天机</div>
                     <div class="star-card-name">天机星</div>
-                    <div class="star-card-attr">智慧 · 机变 · 善谋</div>
+                    <div class="star-card-attr">智慧 &#183; 机变 &#183; 善谋</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">太阳</div>
                     <div class="star-card-name">太阳星</div>
-                    <div class="star-card-attr">光明 · 博爱 · 官贵</div>
+                    <div class="star-card-attr">光明 &#183; 博爱 &#183; 官贵</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">武曲</div>
                     <div class="star-card-name">武曲星</div>
-                    <div class="star-card-attr">财帛 · 刚毅 · 实干</div>
+                    <div class="star-card-attr">财帛 &#183; 刚毅 &#183; 实干</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">天同</div>
                     <div class="star-card-name">天同星</div>
-                    <div class="star-card-attr">福德 · 温和 · 享乐</div>
+                    <div class="star-card-attr">福德 &#183; 温和 &#183; 享乐</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">廉贞</div>
                     <div class="star-card-name">廉贞星</div>
-                    <div class="star-card-attr">囚星 · 执着 · 才艺</div>
+                    <div class="star-card-attr">囚星 &#183; 执着 &#183; 才艺</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">天府</div>
                     <div class="star-card-name">天府星</div>
-                    <div class="star-card-attr">令星 · 稳重 · 财库</div>
+                    <div class="star-card-attr">令星 &#183; 稳重 &#183; 财库</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">太阴</div>
                     <div class="star-card-name">太阴星</div>
-                    <div class="star-card-attr">阴柔 · 财富 · 田宅</div>
+                    <div class="star-card-attr">阴柔 &#183; 财富 &#183; 田宅</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">贪狼</div>
                     <div class="star-card-name">贪狼星</div>
-                    <div class="star-card-attr">桃花 · 欲望 · 才艺</div>
+                    <div class="star-card-attr">桃花 &#183; 欲望 &#183; 才艺</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">巨门</div>
                     <div class="star-card-name">巨门星</div>
-                    <div class="star-card-attr">暗曜 · 口才 · 是非</div>
+                    <div class="star-card-attr">暗曜 &#183; 口才 &#183; 是非</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">天相</div>
                     <div class="star-card-name">天相星</div>
-                    <div class="star-card-attr">印绶 · 服务 · 衣食</div>
+                    <div class="star-card-attr">印绶 &#183; 服务 &#183; 衣食</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">天梁</div>
                     <div class="star-card-name">天梁星</div>
-                    <div class="star-card-attr">荫星 · 长寿 · 解厄</div>
+                    <div class="star-card-attr">荫星 &#183; 长寿 &#183; 解厄</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">七杀</div>
                     <div class="star-card-name">七杀星</div>
-                    <div class="star-card-attr">将星 · 决断 · 开创</div>
+                    <div class="star-card-attr">将星 &#183; 决断 &#183; 开创</div>
                 </div>
                 <div class="star-card">
                     <div class="star-card-symbol">破军</div>
                     <div class="star-card-name">破军星</div>
-                    <div class="star-card-attr">耗星 · 变化 · 开创</div>
+                    <div class="star-card-attr">耗星 &#183; 变化 &#183; 开创</div>
+                </div>
+            </div>
+
+            <!-- 主星详解卡片 -->
+            <div style="margin-top:var(--space-12)">
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">紫微星系</span></div>
+                    <h3 class="card-title">紫微星 &#183; 帝座之星</h3>
+                    <div class="card-body">
+                        <p>紫微星为<strong>北斗之主</strong>，象征帝王、尊贵、领导力。紫微坐命之人，天生具有领导气质，自尊心强，重视面子，有统御才能。</p>
+                        <p>紫微喜逢<strong>左辅、右弼</strong>相佐，如百官朝拱，格局大显。若 solitary（孤君），则易有高处不胜寒之感。紫微与天府同宫为「紫府同宫」格，主富贵双全。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">紫微星系</span></div>
+                    <h3 class="card-title">天机星 &#183; 智慧之星</h3>
+                    <div class="card-body">
+                        <p>天机为<strong>智慧、谋略、变动</strong>之星。天机坐命之人聪明机敏，善于策划，但容易思虑过多、心神不宁。</p>
+                        <p>天机喜逢化科，主智慧名声显达；逢化忌则易有神经紧张、决策失误。天机与巨门同宫为「机巨同临」，主口才出众但易招是非。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">紫微星系</span></div>
+                    <h3 class="card-title">太阳星 &#183; 光明之星</h3>
+                    <div class="card-body">
+                        <p>太阳为<strong>光明、博爱、官贵</strong>之星，代表父亲、男性贵人、官运。太阳坐命之人热心公益，光明磊落，具有奉献精神。</p>
+                        <p>太阳在<strong>庙旺</strong>（卯辰巳午）时光辉万丈，主贵显；在<strong>落陷</strong>（酉戌亥子）则光芒暗淡，需防眼目之疾与男性缘薄。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">紫微星系</span></div>
+                    <h3 class="card-title">武曲星 &#183; 财星</h3>
+                    <div class="card-body">
+                        <p>武曲为<strong>正财星</strong>，象征财富、刚毅、实干。武曲坐命之人务实肯干，有理财头脑，但性格偏刚直，不善表达情感。</p>
+                        <p>武曲喜逢化禄，主财源滚滚；逢化忌则易有财务纠纷。武曲与天府同宫为「武府同宫」，主富甲一方；与七杀同宫为「武杀格」，主创业兴家。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">紫微星系</span></div>
+                    <h3 class="card-title">天同星 &#183; 福星</h3>
+                    <div class="card-body">
+                        <p>天同为<strong>福德之主</strong>，象征温和、享乐、童真。天同坐命之人性情温和，知足常乐，有口福，但容易懒散、缺乏进取心。</p>
+                        <p>天同喜逢化禄，主福泽深厚；逢煞星则福薄多灾。天同与太阴同宫为「同阴格」，主文秀温和；与巨门同宫为「同巨格」，主先苦后甜。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">紫微星系</span></div>
+                    <h3 class="card-title">廉贞星 &#183; 囚星</h3>
+                    <div class="card-body">
+                        <p>廉贞为<strong>次桃花</strong>，象征执着、才艺、政治。廉贞坐命之人感情丰富，多才多艺，但容易钻牛角尖，感情多波折。</p>
+                        <p>廉贞遇贪狼为「廉贪格」，主风流才华；遇破军为「廉破格」，主变动起伏大。廉贞化忌时尤需注意官非与感情困扰。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">天府星系</span></div>
+                    <h3 class="card-title">天府星 &#183; 令星</h3>
+                    <div class="card-body">
+                        <p>天府为<strong>南斗之主</strong>，象征稳重、财库、保守。天府坐命之人稳重务实，善于守成，理财有道，但开创力稍弱。</p>
+                        <p>天府喜与紫微同宫或会照，主富贵。天府最喜<strong>禄存</strong>同宫，形成「府相朝垣」或「禄府同宫」，主大富。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">天府星系</span></div>
+                    <h3 class="card-title">太阴星 &#183; 阴柔之星</h3>
+                    <div class="card-body">
+                        <p>太阴为<strong>田宅主、财星</strong>，象征阴柔、财富、女性缘。太阴坐命之人细腻敏感，善于理财，重视家庭。</p>
+                        <p>太阴喜夜生（酉戌亥子丑寅时），光辉倍增；日生则光芒暗淡。太阴化禄主财源滚滚，化科主名声显达。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">天府星系</span></div>
+                    <h3 class="card-title">贪狼星 &#183; 桃花之星</h3>
+                    <div class="card-body">
+                        <p>贪狼为<strong>正桃花、欲望之星</strong>，象征桃花、才艺、欲望。贪狼坐命之人多才多艺，交际广泛，但容易沉溺于欲望。</p>
+                        <p>贪狼遇火星或铃星为「火贪格」或「铃贪格」，主暴富。贪狼化禄主桃花财禄，化忌则需防感情困扰。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">天府星系</span></div>
+                    <h3 class="card-title">巨门星 &#183; 暗曜</h3>
+                    <div class="card-body">
+                        <p>巨门为<strong>暗曜、是非之星</strong>，象征口才、是非、隐秘。巨门坐命之人口才出众，但容易招是非、多口舌。</p>
+                        <p>巨门化禄主口才好、能言善辩；化忌则易有口舌官非。巨门逢太阳同宫或会照，可解其暗，为「巨日格」，主富贵。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">天府星系</span></div>
+                    <h3 class="card-title">天相星 &#183; 印绶之星</h3>
+                    <div class="card-body">
+                        <p>天相为<strong>印星</strong>，象征服务、衣食、协调。天相坐命之人注重仪表，善于协调，有服务精神，但容易随波逐流。</p>
+                        <p>天相喜与紫微、天府会照，形成「君臣庆会」或「府相朝垣」格，主富贵。天相最怕逢化忌，主文书纠纷。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">天府星系</span></div>
+                    <h3 class="card-title">天梁星 &#183; 荫星</h3>
+                    <div class="card-body">
+                        <p>天梁为<strong>荫星、寿星</strong>，象征长寿、解厄、正直。天梁坐命之人正直善良，有逢凶化吉之能，但容易老成持重、说教他人。</p>
+                        <p>天梁喜逢化科，主清贵名声；化禄则反主虚伪。天梁在午宫为「寿星入庙」，主健康长寿。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">天府星系</span></div>
+                    <h3 class="card-title">七杀星 &#183; 将星</h3>
+                    <div class="card-body">
+                        <p>七杀为<strong>将星、肃杀之星</strong>，象征决断、开创、冒险。七杀坐命之人果敢决断，有开创精神，但性格刚烈、容易冲动。</p>
+                        <p>七杀喜逢化权，主掌权柄；与紫微同宫为「紫杀格」，主权威。七杀遇擎羊为「杀拱羊」，主武职显达。</p>
+                    </div>
+                </article>
+
+                <article class="knowledge-card" style="opacity:1;transform:none">
+                    <div class="card-header"><span class="card-tag">天府星系</span></div>
+                    <h3 class="card-title">破军星 &#183; 耗星</h3>
+                    <div class="card-body">
+                        <p>破军为<strong>耗星、变化之星</strong>，象征破坏、重建、变化。破军坐命之人敢于破旧立新，变化多端，但一生起伏较大。</p>
+                        <p>破军喜逢化禄，主变化中有收获；化忌则主破败。破军与紫微同宫为「紫破格」，主先破后立、大起大落。</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 辅煞星详解 ==================== -->
+    <section class="aux-stars-section" id="aux-stars">
+        <div class="section-divider">
+            <span class="divider-line"></span>
+            <span class="divider-text">辅煞星曜</span>
+            <span class="divider-line"></span>
+        </div>
+        <div class="aux-stars-container">
+            <div class="stars-header">
+                <span class="stars-index">04</span>
+                <h2 class="stars-title">辅曜与煞曜</h2>
+                <p class="stars-desc">吉星增辉，煞星试炼，共铸命盘</p>
+            </div>
+            <div class="aux-stars-grid">
+                <div class="aux-star-card">
+                    <div class="aux-star-header">
+                        <span class="aux-star-symbol">文昌</span>
+                        <span class="aux-star-type auspicious">吉星</span>
+                    </div>
+                    <p class="aux-star-desc">科甲之星，主文采、考试、学术。文昌守命之人聪明好学，利于考试竞争与文书工作。</p>
+                </div>
+                <div class="aux-star-card">
+                    <div class="aux-star-header">
+                        <span class="aux-star-symbol">文曲</span>
+                        <span class="aux-star-type auspicious">吉星</span>
+                    </div>
+                    <p class="aux-star-desc">才艺之星，主口才、艺术、创意。文曲守命之人多才多艺，善于表达，利于演艺、创作。</p>
+                </div>
+                <div class="aux-star-card">
+                    <div class="aux-star-header">
+                        <span class="aux-star-symbol">左辅</span>
+                        <span class="aux-star-type auspicious">吉星</span>
+                    </div>
+                    <p class="aux-star-desc">辅佐之星，主助力、合作。左辅守命之人人缘好，易得平辈相助，团队合作顺利。</p>
+                </div>
+                <div class="aux-star-card">
+                    <div class="aux-star-header">
+                        <span class="aux-star-symbol">右弼</span>
+                        <span class="aux-star-type auspicious">吉星</span>
+                    </div>
+                    <p class="aux-star-desc">暗助之星，主暗中相助。右弼守命之人易得异性贵人暗中提携，感情缘分较好。</p>
+                </div>
+                <div class="aux-star-card">
+                    <div class="aux-star-header">
+                        <span class="aux-star-symbol">天魁</span>
+                        <span class="aux-star-type auspicious">吉星</span>
+                    </div>
+                    <p class="aux-star-desc">阳贵人之星，主显贵、男性贵人。天魁守命之人易得男性长辈或上司的提携帮助。</p>
+                </div>
+                <div class="aux-star-card">
+                    <div class="aux-star-header">
+                        <span class="aux-star-symbol">天钺</span>
+                        <span class="aux-star-type auspicious">吉星</span>
+                    </div>
+                    <p class="aux-star-desc">阴贵人之星，主隐贵、女性贵人。天钺守命之人易得女性长辈或暗中的帮助。</p>
+                </div>
+                <div class="aux-star-card">
+                    <div class="aux-star-header">
+                        <span class="aux-star-symbol">火星</span>
+                        <span class="aux-star-type malefic">煞星</span>
+                    </div>
+                    <p class="aux-star-desc">暴烈之火，主突发、急躁。火星守命之人脾气火爆，易有突发变故，但也行动力强。</p>
+                </div>
+                <div class="aux-star-card">
+                    <div class="aux-star-header">
+                        <span class="aux-star-symbol">铃星</span>
+                        <span class="aux-star-type malefic">煞星</span>
+                    </div>
+                    <p class="aux-star-desc">阴火之煞，主暗伤、烦躁。铃星守命之人内心焦躁，易有暗疾暗伤，但也心思细腻。</p>
+                </div>
+                <div class="aux-star-card">
+                    <div class="aux-star-header">
+                        <span class="aux-star-symbol">擎羊</span>
+                        <span class="aux-star-type malefic">煞星</span>
+                    </div>
+                    <p class="aux-star-desc">刑伤之煞，主血光、冲突。擎羊守命之人易有刑伤、手术、冲突，但也果敢决断。</p>
+                </div>
+                <div class="aux-star-card">
+                    <div class="aux-star-header">
+                        <span class="aux-star-symbol">陀罗</span>
+                        <span class="aux-star-type malefic">煞星</span>
+                    </div>
+                    <p class="aux-star-desc">拖延之煞，主暗滞、反复。陀罗守命之人做事拖延、进展缓慢，但也深思熟虑。</p>
+                </div>
+                <div class="aux-star-card">
+                    <div class="aux-star-header">
+                        <span class="aux-star-symbol">地空</span>
+                        <span class="aux-star-type malefic">煞星</span>
+                    </div>
+                    <p class="aux-star-desc">空亡之煞，主失落、虚无。地空守命之人精神易空虚，但也可能具有哲学思辨能力。</p>
+                </div>
+                <div class="aux-star-card">
+                    <div class="aux-star-header">
+                        <span class="aux-star-symbol">地劫</span>
+                        <span class="aux-star-type malefic">煞星</span>
+                    </div>
+                    <p class="aux-star-desc">劫破之煞，主破耗、劫难。地劫守命之人财物易破耗，但也可能因破而立。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ==================== 命盘格局 ==================== -->
+    <section class="patterns-section" id="patterns">
+        <div class="section-divider">
+            <span class="divider-line"></span>
+            <span class="divider-text">命盘格局</span>
+            <span class="divider-line"></span>
+        </div>
+        <div class="patterns-container">
+            <div class="stars-header">
+                <span class="stars-index">05</span>
+                <h2 class="stars-title">经典格局</h2>
+                <p class="stars-desc">星曜组合成象，格局定人生层次</p>
+            </div>
+            <div class="patterns-grid">
+                <div class="pattern-card">
+                    <h4 class="pattern-name">君臣庆会格</h4>
+                    <p class="pattern-desc">紫微与天府同宫，或三方四正会照，百官朝拱。主富贵双全，有权有势。</p>
+                </div>
+                <div class="pattern-card">
+                    <h4 class="pattern-name">紫府同宫格</h4>
+                    <p class="pattern-desc">紫微与天府同坐寅申宫。主大富大贵，一生顺遂，但需防志得意满。</p>
+                </div>
+                <div class="pattern-card">
+                    <h4 class="pattern-name">府相朝垣格</h4>
+                    <p class="pattern-desc">天府与天相夹命宫，或三方会照。主官运亨通，得人提携。</p>
+                </div>
+                <div class="pattern-card">
+                    <h4 class="pattern-name">日月并明格</h4>
+                    <p class="pattern-desc">太阳与太阴同时庙旺，分守命宫与身宫。主光明磊落，才华出众。</p>
+                </div>
+                <div class="pattern-card">
+                    <h4 class="pattern-name">巨日格</h4>
+                    <p class="pattern-desc">巨门与太阳同宫或会照，太阳解巨门之暗。主口才出众，富贵可期。</p>
+                </div>
+                <div class="pattern-card">
+                    <h4 class="pattern-name">火贪格 / 铃贪格</h4>
+                    <p class="pattern-desc">贪狼遇火星或铃星。主暴发暴富，横财运强，但也来得快去得快。</p>
+                </div>
+                <div class="pattern-card">
+                    <h4 class="pattern-name">马头带箭格</h4>
+                    <p class="pattern-desc">天同、太阴在午宫，擎羊同宫。主武职显达，威震边疆。</p>
+                </div>
+                <div class="pattern-card">
+                    <h4 class="pattern-name">文星拱命格</h4>
+                    <p class="pattern-desc">文昌、文曲夹命宫或三方会照。主才华出众，利于学术文艺。</p>
+                </div>
+                <div class="pattern-card">
+                    <h4 class="pattern-name">禄存守命格</h4>
+                    <p class="pattern-desc">禄存独坐命宫。主财运亨通，一生不愁衣食，但需防小气吝啬。</p>
+                </div>
+                <div class="pattern-card">
+                    <h4 class="pattern-name">七杀朝斗格</h4>
+                    <p class="pattern-desc">七杀坐寅申宫，紫微天府会照。主武贵，有统帅之才，威名远播。</p>
+                </div>
+                <div class="pattern-card">
+                    <h4 class="pattern-name">石中隐玉格</h4>
+                    <p class="pattern-desc">巨门坐命，得吉星辅佐。主大器晚成，中年后声名鹊起。</p>
+                </div>
+                <div class="pattern-card">
+                    <h4 class="pattern-name">极向离明格</h4>
+                    <p class="pattern-desc">紫微坐午宫，无煞星冲破。主帝座光辉，富贵极品，福寿双全。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Footer ==================== -->
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-logo">
@@ -391,13 +1081,15 @@
             </div>
             <div class="footer-nav">
                 <a href="#hero">首页</a>
-                <a href="#learn">星盘</a>
+                <a href="#learn">基础知识</a>
                 <a href="#palaces">十二宫</a>
                 <a href="#stars">主星</a>
+                <a href="#aux-stars">辅煞星</a>
+                <a href="#patterns">格局</a>
             </div>
             <div class="footer-copy">
                 <span>传承千年东方智慧</span>
-                <span>© 2025 国学基础学习平台</span>
+                <span>&#169; 2025 国学基础学习平台</span>
             </div>
         </div>
     </footer>
